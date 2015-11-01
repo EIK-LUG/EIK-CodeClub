@@ -45,5 +45,5 @@ Either way you need to just be able to perform data transformations:
 
    runtime data <-> text file data
     
-    {"name": "Attend PythonCodeClub", "priority": 2} <-> Attend PythonCodeClub|2 
+    {"name": "Attend PythonCodeClub", "priority": 2} <-> "Attend PythonCodeClub|2"
         
