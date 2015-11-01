@@ -13,10 +13,13 @@ Some of the activities we will be doing:
 ## FAQ
 
 Q: What if I have very little confidence in my skill?
+
 A: No worries, there is no minimum skill requirement. There will be beginner friendly stuff. :)
 
 Q: If you guys have been active for a while, can I keep up?
+
 A: Yes, we won't be following a schedule. Understanding will mostly not depend on previous CodeClub participation.
 
 Q: What programming languages do you use?
+
 A: Currently we can offer the most support with python, java, javascript, C/C++, clojure and clojurescript, although with higher level algorithmic and software design problems the language doesn't matter.
