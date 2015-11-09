@@ -3,11 +3,11 @@ public class ProfilingExamples {
 
     public static void main(String[] args) {
         System.out.println("Connect up the VisualVM");
-        int inp = 1000;
+        int inp = 2000;
 
         //For a delay of execution to have time to hook up the VisualVM profiler
         try {
-            Thread.sleep(5000);
+            Thread.sleep(10000);
         } catch(InterruptedException ex) {
             Thread.currentThread().interrupt();
         }
