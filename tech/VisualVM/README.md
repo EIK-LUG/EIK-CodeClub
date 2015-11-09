@@ -114,24 +114,17 @@ JVM replaces looping over the values and adding with something like multiplicati
 
 ```
 for j -> n
-
     for k -> n
-    
         for l -> n
-        
             sum += j
-            
 ```
 
 becomes:
 
 ```
 for j -> n
-
     sum += j
-    
 sum = sum * n * n
-
 ```
 
 The results:
