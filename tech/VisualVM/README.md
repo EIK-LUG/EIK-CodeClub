@@ -85,27 +85,16 @@ If you make the following changes in the cubic method:
 
 ```
     public static int cubic(int n) {
-    
         int sum = 0;
-        
         for (int j = 0; j < n; j++) {
-        
             for (int k = 0; k < n; k++) {
-            
                 for (int l = 0; l < n; l++) {
-                
                     // sum += j * k / (l + 1); Replace this with..
-                    
                     sum += j; //.. this
-                    
                 }
-                
             }
-            
         }
-        
         return sum;
-        
     }
 ```
 
