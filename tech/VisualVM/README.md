@@ -67,7 +67,9 @@ The drastic difference between different complexity algorithms is well displayed
 
 Note: Ignore the Thread0 and DestroyVM calls, those are just regular JVM processes.
 
-Extra:
+## Extra:
+
+### Good to know
 
     * Know that you can profile memory as well, to see how much memory what component are using.
     
@@ -76,3 +78,68 @@ Extra:
     * You can also open the Monitor tab and see general statistics about the performance of the JVM program:
     
 ![alt tag](visual_vm_snapshot_profiler_snapshot_monitor.png)
+
+### Interesting example of dead code elimination in the JVM
+
+If you make the following changes in the cubic method:
+
+```
+    public static int cubic(int n) {
+    
+        int sum = 0;
+        
+        for (int j = 0; j < n; j++) {
+        
+            for (int k = 0; k < n; k++) {
+            
+                for (int l = 0; l < n; l++) {
+                
+                    // sum += j * k / (l + 1); Replace this with..
+                    
+                    sum += j; //.. this
+                    
+                }
+                
+            }
+            
+        }
+        
+        return sum;
+        
+    }
+```
+
+The inner process (sum += j;) no longer uses the values from the other loops (k and l), thus they are "Dead Code". The 
+JVM replaces looping over the values and adding with something like multiplication as the exact value of k and l have no consequence.
+
+```
+for j -> n
+
+    for k -> n
+    
+        for l -> n
+        
+            sum += j
+            
+```
+
+becomes:
+
+```
+for j -> n
+
+    sum += j
+    
+sum = sum * n * n
+
+```
+
+The results:
+
+#### Original
+
+![alt tag](dead_code_elimination_not_eliminated.jpg)
+
+#### Edited cubic method
+
+![alt tag](dead_code_elimination_eliminated.jpg)
